@@ -22,6 +22,12 @@ abstract class Request {
      * @var string
      */
     private $proxy;
+	
+	/**
+	 * Comma-separated Proxy username and password for Requests
+	 * @var string
+	 */
+	private $proxyCredentials;
 
     /**
      * Proxy used for Requests
@@ -65,6 +71,14 @@ abstract class Request {
     public function setProxy($proxy){
         $this->proxy = $proxy;
     }
+	
+	/**
+	 * Set comma-separated credentials for proxy to be used for Requests
+	 * @param $credentials string
+	 */
+	public function setProxyCredentials($credentials){
+		$this->proxyCredentials = $credentials;
+	}
 
     /**
      * Enable/Disable SSL Verification of Peer
@@ -167,6 +181,10 @@ abstract class Request {
 
         if($this->proxy != null){
             $curl->setOpt(CURLOPT_PROXY, $this->proxy);
+			
+			if($this->proxyCredentials != null){
+				$curl->setOpt(CURLOPT_PROXYUSERPWD, $this->proxyCredentials);
+			}
         }
 
         foreach($this->getHeaders() as $key => $value){
