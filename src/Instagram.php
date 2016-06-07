@@ -372,7 +372,7 @@ class Instagram {
      * Set the Credentials for HTTP Proxy to be used for Instagram API Requests
      * @param $credentials string
      */
-    public function setProxy($credentials){
+    public function setProxyCredentials($credentials){
         $this->proxyCredentials = $credentials;
     }
 
