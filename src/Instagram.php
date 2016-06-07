@@ -125,6 +125,12 @@ class Instagram {
      * @var string
      */
     private $proxy;
+	
+	/**
+	 * Credentials for HTTP Proxy to be used for Snapchat API Requests
+	 * @var string
+	 */
+	private $proxyCredentials;
 
     /**
      * Enable/Disable SSL Verification of Peer
@@ -360,6 +366,22 @@ class Instagram {
      */
     public function getProxy(){
         return $this->proxy;
+    }
+	
+	/**
+     * Set the Credentials for HTTP Proxy to be used for Instagram API Requests
+     * @param $credentials string
+     */
+    public function setProxy($credentials){
+        $this->proxyCredentials = $credentials;
+    }
+
+    /**
+     * Get the Credentials for HTTP Proxy to be used for Instagram API Requests
+     * @return string
+     */
+    public function getProxyCredentials(){
+        return $this->proxyCredentials;
     }
 
     /**
